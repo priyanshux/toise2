@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="image1.webp" as="image">
+    <link rel="preload" href="image2.webp" as="image">
+    <link rel="preload" href="tortoise.webp" as="image">
+    <link rel="preload" href="logo.webp" as="image">
+</head>
+<body>
+    <div class="image-top fade-in">
+        <img src="tortoise.webp" alt="Tortoise" class="tortoise">
+        <img src="logo.webp" alt="Logo" class="logo">
+    </div>
+    <div class="image-bottom fade-in">
+        <div class="label fade-in">
+            <p class="somethings-brewing fade-in">
+                <span class="text-wrapper fade-in">Something’s brewing...<br /></span>
+                <span class="span fade-in">Stay tuned for the perfect blend</span>
+            </p>
+        </div>
+        <div class="footer fade-in">
+            <a href="mailto:contact@toise.coffee" class="footer-text fade-in">contact@toise.coffee</a>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelector('.tortoise').style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
+
+<style>
+/* Default styles */
+@font-face {
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 400 700;
+    src: url('Syne.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-family: Darker Grotesque;
+    font-style: normal;
+    font-weight: 400 700;
+    src: url('DarkerGrotesque.ttf') format('truetype'); 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Syne', sans-serif;
+    overflow: hidden;
+}
+
+.image-top {
+    position: relative;
+    background-image: url('image1.webp');
+    background-size: cover;
+    background-position: center;
+    flex: 1.9;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.tortoise {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotateZ(37.5deg);
+    height: 25vh;
+    opacity: 0;
+    animation: rocking 2s ease-in-out infinite alternate;
+    transition: opacity 0.5s;
+}
+
+@keyframes rocking {
+    0% {
+        transform: translateX(-50%) rotateZ(37.5deg);
+    }
+    100% {
+        transform: translateX(-50%) rotateZ(-10deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #EBBA30;
+    padding: 8px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.somethings-brewing {
+    margin: 0;
+    font-size: 70px;
+}
+
+.text-wrapper {
+    display: block;
+}
+
+.span {
+    display: block;
+    font-size: 24px;
+    opacity: 0;
+    animation: fadeIn 2.5s forwards;
+}
+
+.image-bottom {
+    background-image: url('image2.webp');
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.logo {
+    position: absolute;
+    margin-top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    height
